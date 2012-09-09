@@ -340,7 +340,7 @@ bool Configurator::Run()
 			}
 			Complete();
 		} else {
-			MojLogNotice(m_log, "%s :: %d configurations pending, m_completed = %d", ConfiguratorName(), m_pendingConfigs.size(), m_completed);
+			MojLogNotice(m_log, "%s :: %lu configurations pending, m_completed = %d", ConfiguratorName(), m_pendingConfigs.size(), m_completed);
 		}
 		// nothing to do - already sent out all the requests
 		// just waiting for responses from services

@@ -505,7 +505,7 @@ gboolean BusClient::IterateConfiguratorsCallback(gpointer data)
 
 	if (client->m_configuratorsCompleted == client->m_configurators.size()) {
 		if (!client->m_shuttingDown) {
-			MojLogNotice(client->m_log, "No more configurators left (%d configurations completed, %d configurations failed), shutting down.", Configurator::ConfigureOk().size(), Configurator::ConfigureFailure().size());
+			MojLogNotice(client->m_log, "No more configurators left (%lu configurations completed, %lu configurations failed), shutting down.", Configurator::ConfigureOk().size(), Configurator::ConfigureFailure().size());
 			client->ScheduleShutdown();
 			return client->m_msg.get() != NULL;
 		}
@@ -589,7 +589,7 @@ void BusClient::ScheduleShutdown()
 	}
 
 	if (!m_pending.empty()) {
-		MojLogDebug(m_log, "%d pending service calls to handle remaining", m_pending.size());
+		MojLogDebug(m_log, "%lu pending service calls to handle remaining", m_pending.size());
 
 		// still more pending work
 		m_configuratorsCompleted = 0;
